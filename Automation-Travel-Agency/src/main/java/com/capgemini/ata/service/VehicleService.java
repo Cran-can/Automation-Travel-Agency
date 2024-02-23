@@ -4,8 +4,8 @@ import com.capgemini.ata.entity.Vehicle;
 
 public interface VehicleService {
     public void addVehicle(Vehicle vehicle);
-    public void deleteVehicle();
+    public String deleteVehicle(String id);
 
-    public Vehicle getVehiclebyId(String id);
-    public void modifyVehicle();
+    public Vehicle getVehicleById(String id);
+    public Vehicle modifyVehicle(Vehicle vehicle);
 }

@@ -8,19 +8,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/admin/vehicle")
 public class VehicleController {
 
     @Autowired
     private VehicleServiceImpl vehicleServiceImpl;
-    @PostMapping("/addVehicle")
+    @PostMapping("/add")
     public ResponseEntity<String> addVehicle(@RequestBody Vehicle vehicle) {
           vehicleServiceImpl.addVehicle(vehicle);
           return new ResponseEntity<>( "Vehicle Added Successfully.", HttpStatus.OK );
     }
 
     @GetMapping("/getById/{id}")
-    public Vehicle getVehiclebyId(@PathVariable String id){
-        return vehicleServiceImpl.getVehiclebyId(id);
+    public Vehicle getVehicleById(@PathVariable String id){
+        return vehicleServiceImpl.getVehicleById(id);
+    }
+
+    @PutMapping("/modify")
+    public Vehicle modifyVehicle(@RequestBody Vehicle vehicle){
+        return  vehicleServiceImpl.modifyVehicle(vehicle);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteVehicle(@PathVariable String id){
+        return vehicleServiceImpl.deleteVehicle(id);
     }
 }

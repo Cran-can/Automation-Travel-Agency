@@ -15,17 +15,18 @@ public class VehicleServiceImpl implements VehicleService{
     }
 
     @Override
-    public void deleteVehicle() {
-
+    public String deleteVehicle(String id) {
+        vehicleRepository.deleteById(id);
+        return "Vehicle Deleted Successfully!!!";
     }
 
     @Override
-    public Vehicle getVehiclebyId(String id) {
+    public Vehicle getVehicleById(String id) {
         return vehicleRepository.findById(id).get();
     }
 
     @Override
-    public void modifyVehicle() {
-
+    public Vehicle modifyVehicle(Vehicle vehicle) {
+        return vehicleRepository.save(vehicle);
     }
 }

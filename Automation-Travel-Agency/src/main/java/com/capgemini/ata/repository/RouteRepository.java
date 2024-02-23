@@ -1,10 +1,10 @@
 package com.capgemini.ata.repository;
 
-import com.capgemini.ata.entity.Vehicle;
+import com.capgemini.ata.entity.Route;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VehicleRepository extends MongoRepository<Vehicle,String> {
+public interface RouteRepository extends MongoRepository<Route,String> {
 
 }
